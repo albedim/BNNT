@@ -1,0 +1,58 @@
+.balance-box{
+    position: absolute;
+    background-color: #1f1f1f;
+    border-radius: 14px;
+    margin-top: 44px;
+    margin-left: 484px;
+    height: 134px;
+    width: 345px;
+}
+
+.balance-title{
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    margin-top: 19px;
+    margin-left: 44px;
+    font-family: "Heebo";
+    color: #969593;
+}
+
+.month-box{
+    position: absolute;
+    background-color: #1f1f1f;
+    border-radius: 14px;
+    margin-top: 44px;
+    margin-left: 884px;
+    height: 134px;
+    width: 345px;
+}
+
+.month-title{
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    margin-top: 19px;
+    margin-left: 44px;
+    font-family: "Heebo";
+    color: #969593;
+}
+
+.month-value{
+    font-weight: 500;
+    position: absolute;
+    margin-top: 64px;
+    margin-left: 44px;
+    font-family: "Heebo";
+    color: white;
+}
+
+
+.balance-value{
+    font-weight: 500;
+    position: absolute;
+    margin-top: 64px;
+    margin-left: 44px;
+    font-family: "Heebo";
+    color: white;
+}

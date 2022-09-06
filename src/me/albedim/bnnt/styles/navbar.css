@@ -1,0 +1,82 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    background-color: #1f1f1f;
+    left: 0;
+    height: 1100px;
+    width: 324px;
+}
+
+.title{
+    width: 244px;
+    height: 74px;
+    border-bottom: 1px solid #3b3b3b;
+    margin-left: 34px;
+    margin-top: 54px;
+}
+
+.name, .description{
+    color: white;
+    font-family: "Heebo";
+}
+
+.icon{
+    position: absolute;
+    width: 54px;
+}
+
+a{text-decoration: none;}
+
+.menu{
+    margin-top: 78px;
+    width: 244px;
+    margin-left: 34px;
+    height: 345px;
+    border-bottom: 1px solid #3b3b3b;
+}
+
+.menu ul li{
+    margin-bottom: 44px;
+    transition: 0.4s;
+    font-family: "Heebo";
+    list-style: none;
+}
+
+.menu ul li:hover{
+    margin-left: -9px;
+    transition: 0.4s;
+    color: #969593;
+}
+
+.name{
+    margin-left: 78px;
+    font-size: 17px;
+}
+
+.dashboard-menu{
+    color: white;
+}
+
+.cards-menu{
+    color: white;
+}
+
+.movements-menu{
+    color: white;
+}
+
+.transfers-menu{
+    color: white;
+}
+
+.options-menu{
+    color: white;
+}
+
+.description{
+    font-weight: 400;
+    margin-left: 78px;
+    margin-top: -15px;
+    color: #969593;
+    font-size: 14px;
+}
