@@ -1,35 +1,36 @@
 <?php
 
-    /*
+/*
      * Created by @albedim (Github: github.com/albedim) on 04/09/22
      * Last Update -
      */
 
-    session_start();
+session_start();
 
-    include 'src/me/albedim/bnnt/classes/database/config.php';
-    include 'src/me/albedim/bnnt/classes/User.php';
-    include 'src/me/albedim/bnnt/classes/Movement.php';
-    include 'src/me/albedim/bnnt/classes/Card.php';
+include 'src/me/albedim/bnnt/classes/database/config.php';
+include 'src/me/albedim/bnnt/classes/User.php';
+include 'src/me/albedim/bnnt/classes/Movement.php';
+include 'src/me/albedim/bnnt/classes/Card.php';
 
-    $user = new User(null,null,null,null,null,null,null);
-    $card = new Card(null,null,null,null,null);
-    $movement = new Movement(null,null,null,null,null,null,null);
-    $user::createTable();
-    $card::createTable();
-    $movement::createTable();
+$user = new User(null, null, null, null, null, null, null);
+$card = new Card(null, null, null, null, null);
+$movement = new Movement(null, null, null, null, null, null, null);
+$user::createTable();
+$card::createTable();
+$movement::createTable();
 
 
-    if(!empty($_SESSION['session_id'])){
-        header("Location: /bnnt.com/dashboard");
-        exit;
-    }
+if (!empty($_SESSION['session_id'])) {
+    header("Location: /bnnt.com/dashboard");
+    exit;
+}
 
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,6 +41,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B.N.N.T Banca Nazionale new Tecnologies</title>
 </head>
+
 <body>
 
     <div class="login-box">
@@ -63,26 +65,24 @@
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
 </body>
+
 </html>
 
 <?php
 
-    if(isset($_POST['btn'])){
-        $userlogin = new User($_POST['email'], $_POST['password'], null, null, null, null, null);
-        if($userlogin->login()){
-            $_SESSION['session_id'] = (string) $userlogin->getId();
-            
-            if(date("d") === "01" ){
-                $user = new User(null, null, $_SESSION['session_id'], null, null, null, null);
-                $user->setMonthExpense(0);
-            }
-        
-            header("Location: dashboard");
-            exit;
+if (isset($_POST['btn'])) {
+    $userlogin = new User($_POST['email'], $_POST['password'], null, null, null, null, null);
+    if ($userlogin->login()) {
+        $_SESSION['session_id'] = (string) $userlogin->getId();
+
+        if (date("d") === "01") {
+            $user = new User(null, null, $_SESSION['session_id'], null, null, null, null);
+            $user->setMonthExpense(0);
         }
 
+        header("Location: dashboard");
+        exit;
     }
-
-
+}
 
 ?>

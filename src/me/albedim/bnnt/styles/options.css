@@ -1,0 +1,40 @@
+.user-name, .user-surname, .user-email, .user-password, .iban{
+    margin-top: 44px;
+    margin-left: 21px;
+    font-family: "Heebo";
+    color: white;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #3b3b3b;
+    background-color: transparent;
+    height: 44px;
+    width: 484px;
+}
+
+.options{
+    margin-top: 44px;
+    margin-left: 384px;
+    width: 544px;
+    border: 1px solid transparent;
+}
+
+.btn{
+    margin-top: 114px;
+    margin-left: 64px;
+    font-family: "Heebo";
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: #1f1f1f;
+    height: 44px;
+    width: 384px;
+}
+
+.title{
+    font-family: "Heebo";
+    color: white;
+    font-size: 21px;
+}

@@ -5,13 +5,12 @@
      * Last Update -
      */
 
-    session_start();
+session_start();
 
-    if(!empty($_SESSION['session_id']))
-        session_destroy();
-    
-    header("Location: /bnnt.com/");
-    exit;
+if (!empty($_SESSION['session_id']))
+    session_destroy();
 
+header("Location: /bnnt.com/");
+exit;
 
 ?>

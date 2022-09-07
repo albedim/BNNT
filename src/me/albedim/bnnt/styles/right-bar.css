@@ -1,0 +1,250 @@
+.right-bar{
+    width: 444px;
+    height: 1100px;
+    background-color: #1f1f1f;
+    top: 0;
+    right: 0;
+    position: fixed;
+    float: right;
+}
+
+.account{
+    margin-left: 44px;
+    width: 348px;
+    height: 84px;
+    border-bottom: 1px solid #3b3b3b;
+    margin-top: 54px;
+}
+
+.account-name{
+    font-weight: 500;
+    font-family: "Heebo";
+    margin-left: 114px;
+    position: absolute;
+    margin-top: 24px;
+    font-size: 19px;
+    color: #969593;
+}
+
+.cards{
+    margin-left: 44px;
+    width: 348px;
+    height: 484px;
+    margin-top: 54px;
+}
+
+.card{
+    margin-top: 44px;
+    height: 124px;
+}
+
+.card_card{
+    margin-left: 17px;
+    margin-top: 17px;
+    background: linear-gradient(to right, #14801a, #2fc237);
+    border-radius: 14px;
+    height: 94px;
+    position: absolute;
+    width: 145px;
+}
+
+.date{
+    margin-left: 94px;
+    font-family: "Heebo";
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.type{
+    margin-left: 194px;
+    font-family: "Heebo";
+    font-size: 17px;
+    font-weight: 500;
+    color: #969593;
+    position: absolute;
+}
+
+.balance{
+    margin-top: 54px;
+    margin-left: 194px;
+    font-family: "Heebo";
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    position: absolute;
+}
+
+.pin{
+    margin-top: 19px;
+    margin-left: 78px;
+    font-family: "Heebo";
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+}
+
+.cards-title{
+    font-family: "Heebo";
+    color: white;
+}
+
+.account ion-icon, .logout-mobile ion-icon{
+    margin-left: 16px;
+    color: #969593;
+    margin-top: 24px;
+    font-size: 24px;
+    position: absolute;
+}
+
+.account-image{
+    margin-top: 10.4px;
+    margin-left: 268px;
+    position: absolute;
+    width: 54px;
+}
+
+.logout-mobile-image{
+    margin-top: 16px;
+    margin-left: 54px;
+    position: absolute;
+    width: 44px;
+}
+
+.logout-mobile{
+    display: none;
+    top: 0;
+    right: 0;
+    position: fixed;
+    background-color: #1f1f1f;
+    border-bottom-left-radius: 14px;
+    height: 74px;
+    float: right;
+    width: 134px;
+}
+
+@media screen and (max-width: 1800px){
+    .right-bar{
+        display: none;
+    }
+
+    .logout-mobile{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .navbar{
+        width: 134px !important;
+    }
+
+    .title{
+        margin-left: 0px !important;
+        width: 134px !important;
+    }
+
+    .name, .description{
+        display: none;
+    }
+
+    .menu{
+        width: 134px !important;
+        margin-left: 0px !important;
+    }
+
+    .menu ul li{
+        margin-left: -29px !important;
+    }
+
+    .month-box{
+        margin-left: 644px !important;
+    }
+
+    .sections{
+        width: 348px;
+        height: 384px;
+        margin-left: 154px !important;
+    }
+
+    .balance-box{
+        margin-left: 234px !important;
+    }
+
+    .movements{
+        margin-left: 184px !important;
+    }
+
+    .title img{
+        margin-top: -14px;
+        margin-left: 28px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .navbar{
+        display: none;
+    }
+
+    .balance-box{
+        margin-left: 18px !important;
+    }
+
+    .month-box{
+        height: 94px !important;
+        margin-top: 204px !important;
+        margin-left: 18px !important;
+    }
+
+    .month-value{
+        margin-top: 48px !important;
+    }
+
+    .sections{
+        display: block;
+        margin-top: 348px;
+        margin-left: 28px !important;
+    }
+
+    .section_transfers{
+        height: 88px;
+    }
+
+    .section_cards, .section_movements{
+        height: 84px;
+    }
+
+    .section-btn{
+        display: none;
+    }
+
+    .movements{
+        width: 344px;
+        margin-top: 744px;
+        margin-left: 29px !important;
+    }
+
+    .movement{
+        width: 344px;
+    }
+
+    .users-movement{
+        margin-left: -19px !important;
+    }
+
+    .dates-movement{
+        display: none;
+    }
+
+    .dates-movement{
+        display: none;
+    }
+
+    .logout-mobile{
+        display: none;
+    }
+
+    .money-movement{
+        margin-left: 34px;
+    }
+
+}
