@@ -1,6 +1,6 @@
 <?php
 
-/*
+    /*
      * Created by @albedim (Github: github.com/albedim) on 04/09/22
      * Last Update -
      */
@@ -10,45 +10,66 @@ class User
 
     /**
      * Email of the user
+     * 
+     * @var string
      */
 
     private $email;
 
     /**
      * Password of the user
+     * 
+     * @var string
      */
 
     private $password;
 
     /**
      * Id of the user
+     * 
+     * @var int
      */
 
     private $id;
 
     /**
      * Name of the user
+     * 
+     * @var string
      */
 
     private $name;
 
     /**
      * Surname of the user
+     * 
+     * @var string
      */
 
     private $surname;
 
     /**
      * Balance of the user
+     * 
+     * @var double
      */
 
     private $balance;
 
     /**
      * Iban of the user
+     * 
+     * @var string
      */
 
     private $iban;
+
+
+    /**
+     * Constructor expects seven params
+     * 
+     * @phpstan-param Email $email, Password $password, Id $id, Name $name, Balance $balance, Iban  $iban
+     */
 
 
     public function __construct($email, $password, $id, $name, $surname, $balance, $iban)
@@ -61,6 +82,15 @@ class User
         $this->balance = $balance;
         $this->iban = $iban;
     }
+
+    /**
+     *
+     * Creates user's table
+     *
+     * @return return
+     * @param null
+     *
+     */
 
     public static function createTable()
     {
@@ -373,7 +403,7 @@ class User
 
     /**
      *
-     * Get complete name from iban
+     * Gets complete name from iban
      *
      * @return string
      * @param null
@@ -400,7 +430,7 @@ class User
 
     /**
      *
-     * Set name of the user
+     * Sets name of the user
      *
      * @return null
      * @param newName The new name to set
@@ -424,7 +454,7 @@ class User
 
     /**
      *
-     * Set surname of the user
+     * Sets surname of the user
      *
      * @return null
      * @param newSurname The new surname to set
@@ -448,7 +478,7 @@ class User
 
     /**
      *
-     * Set e-mail of the user
+     * Sets e-mail of the user
      *
      * @return null
      * @param newEmail The new e-mail to set
@@ -472,7 +502,7 @@ class User
 
     /**
      *
-     * Set password of the user
+     * Sets password of the user
      *
      * @return null
      * @param newPassword The new password to set
@@ -496,7 +526,7 @@ class User
 
     /**
      *
-     * Set month expense
+     * Sets month expense
      *
      * @return null
      * @param newMonthExpense The new month expense to set
