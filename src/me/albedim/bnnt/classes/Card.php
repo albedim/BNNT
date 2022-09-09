@@ -1,6 +1,6 @@
 <?php
 
-/*
+    /*
      * Created by @albedim (Github: github.com/albedim) on 05/09/22
      * Last Update -
      */
@@ -10,24 +10,32 @@ class Card
 
     /**
      * Id of the bank account
+     * 
+     * @var int
      */
 
     private $user_id;
 
     /**
      * Date of the card
+     * 
+     * @var string
      */
 
     private $date;
 
     /**
      * Number of the card
+     * 
+     * @var string
      */
 
     private $number;
 
     /**
      * Pin of the card
+     * 
+     * @var string
      */
 
     private $pin;
@@ -35,10 +43,18 @@ class Card
 
     /**
      * Pin of the card
+     * 
+     * @var string
      */
 
     private $status;
 
+
+    /**
+     * Constructor expects five params
+     * 
+     * @phpstan-param UserID $userid, Date $date, Number $number, Pin $pin, Status $status
+     */
 
     public function __construct($user_id, $date, $number, $pin, $status)
     {
@@ -48,6 +64,15 @@ class Card
         $this->pin = $pin;
         $this->status = $status;
     }
+
+    /**
+     * 
+     * Creates card's table
+     * 
+     * @return null
+     * @param null
+     * 
+     */
 
     public static function createTable()
     {
