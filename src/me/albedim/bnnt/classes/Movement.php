@@ -1,6 +1,6 @@
 <?php
 
-/*
+    /*
      * Created by @albedim (Github: github.com/albedim) on 05/09/22
      * Last Update -
      */
@@ -10,30 +10,40 @@ class Movement
 
     /**
      * Iban of the bank account who sent money
+     * 
+     * @var string
      */
 
     private $user_iban;
 
     /**
      * Iban of the bank accont who received money
+     * 
+     * @var string
      */
 
     private $target_iban;
 
     /**
      * Money of the movement
+     * 
+     * @var double
      */
 
     private $money;
 
     /**
      * Type of the movement
+     * 
+     * @var string
      */
 
     private $type;
 
     /**
      * Description of the movement
+     * 
+     * @var string
      */
 
     private $description;
@@ -41,9 +51,18 @@ class Movement
 
     /**
      * Date of the movement
+     * 
+     * @var string
      */
 
     private $date;
+
+
+    /**
+     * Constructor expects six params
+     * 
+     * @phpstan-param UserIban $user_iban, TargetIban $target_iban, Money $money, Type $type, Description $description, Date $date
+     */
 
 
     public function __construct($user_iban, $target_iban, $money, $type, $description, $date)
@@ -55,6 +74,15 @@ class Movement
         $this->description = $description;
         $this->date = $date;
     }
+
+    /**
+     * 
+     * Creates movement's table
+     * 
+     * @return null
+     * @param null
+     * 
+     */
 
     public static function createTable()
     {
