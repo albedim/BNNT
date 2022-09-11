@@ -132,14 +132,14 @@ class User
             $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM users WHERE email = ? AND password = ?";
+            $query = "SELECT count(*) AS total FROM users WHERE email = ? AND password = ?";
             $stmt = $connection->prepare($query);
             $stmt->execute([$this->email, $this->password]);
 
-            if ($stmt->fetch())
+            if ($stmt->fetch()['total'] > 0)
                 return true;
-
             return false;
+
         } catch (PDOException $error) {
             echo "connection failed" . $error->getMessage();
         }
@@ -388,12 +388,13 @@ class User
             $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $query = "SELECT * FROM users WHERE iban = ?";
+            $query = "SELECT count(*) AS total FROM users WHERE iban = ?";
             $stmt = $connection->prepare($query);
             $stmt->execute([$this->iban]);
 
-            if ($stmt->fetch())
+            if ($stmt->fetch()['total'] > 0)
                 return true;
+            return false;
 
             return false;
         } catch (PDOException $error) {
