@@ -318,10 +318,7 @@ class User
 
     public function hasMoney($money)
     {
-        if ($this->getBalance() - (int) $money >= 0)
-            return true;
-
-        return false;
+        return $this->getBalance() - (int) $money >= 0;
     }
 
     /**
@@ -391,12 +388,9 @@ class User
             $query = "SELECT count(*) AS total FROM users WHERE iban = ?";
             $stmt = $connection->prepare($query);
             $stmt->execute([$this->iban]);
-
-            if ($stmt->fetch()['total'] > 0)
-                return true;
-            return false;
-
-            return false;
+                
+            return $stmt->fetch()['total'] > 0;
+            
         } catch (PDOException $error) {
             echo "connection failed" . $error->getMessage();
         }
