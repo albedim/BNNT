@@ -7,7 +7,6 @@
 
 session_start();
 
-include 'src/me/albedim/bnnt/classes/database/config.php';
 include 'src/me/albedim/bnnt/classes/Movement.php';
 include 'src/me/albedim/bnnt/classes/User.php';
 include 'src/me/albedim/bnnt/classes/Card.php';

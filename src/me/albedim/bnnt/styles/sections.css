@@ -1,0 +1,80 @@
+.sections{
+    display: inline-flex;
+    height: 284px;
+    width: 968px;
+    margin-left: 384px;
+    position: absolute;
+    margin-top: 264px;
+}
+
+.section_cards{
+    transition: 0.4s;
+    background-color: #259443;
+    height: 244px;
+    margin-top: 17px;
+    margin-left: 26px;
+    border-radius: 20px;
+    width: 284px;
+}
+
+.section_movements{
+    transition: 0.4s;
+    background-color: #2fb753;
+    height: 244px;
+    margin-top: 17px;
+    margin-left: 26px;
+    border-radius: 20px;
+    width: 284px;
+}
+
+.section_transfers{
+    transition: 0.4s;
+    background-color: #3ede68;
+    height: 244px;
+    margin-top: 17px;
+    margin-left: 26px;
+    border-radius: 20px;
+    width: 284px;
+}
+
+.section_transfers:hover, .section_movements:hover, .section_cards:hover{
+    transition: 0.4s;
+    margin-top: 10.4px;
+}
+
+.section-transfers-icon, .section-cards-icon, .section-movements-icon{
+    color: black;
+    position: absolute;
+    margin-top: 24px;
+    margin-left: 24px;
+    font-size: 44px;
+}
+
+.section-title{
+    color: black;
+    font-family: "Heebo";
+    position: absolute;
+    margin-top: 24px;
+    margin-left: 84px;
+    font-size: 20.4px;
+}
+
+.section-btn{
+    color: black;
+    font-family: "Heebo";
+    position: absolute;
+    margin-top: 184px;
+    margin-left: 34px;
+    font-size: 20.4px;
+}
+
+.section-description{
+    color: black;
+    font-weight: 400;
+    font-family: "Heebo";
+    position: absolute;
+    margin-top: 48px;
+    margin-left: 84px;
+    font-size: 14px;
+}
+

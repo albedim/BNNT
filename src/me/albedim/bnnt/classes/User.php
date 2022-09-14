@@ -1,11 +1,13 @@
 <?php
 
+include_once('database/Config.php');
+
     /*
      * Created by @albedim (Github: github.com/albedim) on 04/09/22
      * Last Update -
      */
 
-class User
+class User extends Config
 {
 
     /**
@@ -89,13 +91,9 @@ class User
      *
      */
 
-    public static function createTable()
+    public function createTable()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "CREATE TABLE IF NOT EXISTS `users` (
                     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     `name` varchar(255) NOT NULL,
@@ -106,10 +104,10 @@ class User
                     `month_expense` double NOT NULL,
                     `iban` varchar(255) NOT NULL
                 )";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute();
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -121,19 +119,15 @@ class User
 
     public function login()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT count(*) AS total FROM users WHERE email = ? AND password = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->email, $this->password]);
                 
             return $stmt->fetch()['total'] > 0;
             
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -147,19 +141,15 @@ class User
 
     public function getId()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT id FROM users WHERE email = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->email]);
             $data = $stmt->fetch();
 
             return $data['id'];
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -173,19 +163,15 @@ class User
 
     public function getBalance()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT balance FROM users WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->id]);
             $data = $stmt->fetch();
 
             return $data['balance'];
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -199,19 +185,15 @@ class User
 
     public function getBalanceFromIban()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT balance FROM users WHERE iban = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->iban]);
             $data = $stmt->fetch();
 
             return $data['balance'];
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -225,19 +207,15 @@ class User
 
     public function getIban()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT iban FROM users WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->id]);
             $data = $stmt->fetch();
 
             return $data['iban'];
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -251,19 +229,15 @@ class User
 
     public function getCompleteName()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT * FROM users WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->id]);
             $data = $stmt->fetch();
 
             return $data['name'] . " " . $data['surname'];
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -277,19 +251,15 @@ class User
 
     public function getMonthExpense()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT * FROM users WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->id]);
             $data = $stmt->fetch();
 
             return $data['month_expense'];
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -317,16 +287,12 @@ class User
 
     public function subtractMoney($money)
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "UPDATE users SET balance = ? WHERE iban = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->getBalanceFromIban() - $money, $this->iban]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -340,16 +306,12 @@ class User
 
     public function addMoney($money)
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "UPDATE users SET balance = ? WHERE iban = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->getBalanceFromIban() + $money, $this->iban]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -363,19 +325,15 @@ class User
 
     public function ibanExists()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT count(*) AS total FROM users WHERE iban = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->iban]);
 
             return $stmt->fetch()['total'] > 0;
 
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -389,19 +347,15 @@ class User
 
     public function getCompleteNameFromIban()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT * FROM users WHERE iban = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->iban]);
             $data = $stmt->fetch();
 
             return $data['name'] . " " . $data['surname'];
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -415,16 +369,12 @@ class User
 
     public function setName($newName)
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "UPDATE users SET name = ? WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$newName, $this->id]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -438,16 +388,12 @@ class User
 
     public function setSurname($newSurname)
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "UPDATE users SET surname = ? WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$newSurname, $this->id]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -461,16 +407,12 @@ class User
 
     public function setEmail($newEmail)
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "UPDATE users SET email = ? WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$newEmail, $this->id]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -484,16 +426,12 @@ class User
 
     public function setPassword($newPassword)
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "UPDATE users SET password = ? WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$newPassword, $this->id]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -507,16 +445,12 @@ class User
 
     public function setMonthExpense($newMonthExpense)
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "UPDATE users SET month_expense = ? WHERE id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->getMonthExpense() + $newMonthExpense, $this->id]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 }

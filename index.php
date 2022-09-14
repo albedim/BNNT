@@ -7,7 +7,6 @@
 
 session_start();
 
-include 'src/me/albedim/bnnt/classes/database/config.php';
 include 'src/me/albedim/bnnt/classes/User.php';
 include 'src/me/albedim/bnnt/classes/Movement.php';
 include 'src/me/albedim/bnnt/classes/Card.php';
@@ -15,9 +14,9 @@ include 'src/me/albedim/bnnt/classes/Card.php';
 $user = new User(null, null, null, null, null, null, null);
 $card = new Card(null, null, null, null, null);
 $movement = new Movement(null, null, null, null, null, null, null);
-$user::createTable();
-$card::createTable();
-$movement::createTable();
+$user->createTable();
+$card->createTable();
+$movement->createTable();
 
 
 if (!empty($_SESSION['session_id'])) {

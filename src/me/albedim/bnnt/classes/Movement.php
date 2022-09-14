@@ -1,11 +1,13 @@
 <?php
 
+include_once('database/Config.php');
+
     /*
      * Created by @albedim (Github: github.com/albedim) on 05/09/22
      * Last Update -
      */
 
-class Movement
+class Movement extends Config
 {
 
     /**
@@ -81,13 +83,9 @@ class Movement
      * 
      */
 
-    public static function createTable()
+    public function createTable()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "CREATE TABLE IF NOT EXISTS `movements` (
                     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     `user_iban` varchar(255) NOT NULL,
@@ -97,7 +95,7 @@ class Movement
                     `description` varchar(255) NOT NULL,
                     `date` varchar(255) NOT NULL
                 )";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute();
         } catch (PDOException $error) {
             echo "connection failed" . $error->getMessage();
@@ -114,13 +112,9 @@ class Movement
 
     public function getLatestMovements()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT * FROM movements WHERE user_iban = ? ORDER BY id DESC LIMIT 3";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->user_iban]);
             $movements = array();
 
@@ -157,13 +151,9 @@ class Movement
 
     public function getMovements()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT * FROM movements WHERE user_iban = ? ORDER BY id DESC";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->user_iban]);
             $movements = array();
 
@@ -198,13 +188,9 @@ class Movement
 
     public function addMovement()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "INSERT INTO movements VALUES(?,?,?,?,?,?,?)";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([null, $this->user_iban, $this->target_iban, $this->money, $this->type, $this->description, $this->date]);
         } catch (PDOException $error) {
             echo "connection failed" . $error->getMessage();

@@ -1,0 +1,93 @@
+.login-box{
+    width: 444px;
+    margin-left: 37vw;
+    margin-top: 184px;
+    z-index: 4;
+    border: 1px solid transparent;
+    height: 445px;
+}
+
+body{
+    background-size: 1998px;
+    z-index: 0;
+    overflow-x: hidden;
+    background-image: url("../image.jpg");
+}
+
+@media screen and (max-width: 500px){
+    .login-box{
+        margin-left: -4vw;
+    }
+}
+
+.shadow{
+    background-color: aliceblue;
+    width: 100%;
+    position: relative;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    height: 100%;
+    opacity: 78%;
+}
+
+.email-box, .password-box{
+    height: 44px;
+    margin-top: 9px;
+    background-color: white;
+    margin-left: 44px;
+    border: none;
+    border-radius: 20px;
+    width: 344px;
+}
+
+.email-box{
+    margin-top: 244px;
+}
+
+.btn{
+    height: 45px;
+    margin-top: 19px;
+    font-family: "Heebo";
+    transition: 0.4s;
+    background-color: #242424;
+    margin-left: 38px;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    width: 354px;
+}
+
+.email-box ion-icon, .password-box ion-icon{
+    margin-top: 14px;
+    margin-left: 24px;
+}
+
+.btn:hover{
+    transition: 0.4s;
+    background: linear-gradient(to right, #14801a, #2fc237);
+}
+
+.email-box input{
+    margin-top: 10.4px;
+    border: none;
+    outline: none;
+    height: 24px;
+    background-color: transparent;
+    position: absolute;
+    font-size: 14px;
+    font-family: "Heebo";
+    margin-left: 14px;
+}
+
+.password-box input{
+    margin-top: 10.4px;
+    border: none;
+    outline: none;
+    height: 24px;
+    background-color: transparent;
+    position: absolute;
+    font-size: 14px;
+    font-family: "Heebo";
+    margin-left: 14px;
+}

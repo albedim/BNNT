@@ -1,11 +1,13 @@
 <?php
 
+include_once('database/Config.php');
+
     /*
      * Created by @albedim (Github: github.com/albedim) on 05/09/22
      * Last Update -
      */
 
-class Card
+class Card extends Config
 {
 
     /**
@@ -71,13 +73,9 @@ class Card
      * 
      */
 
-    public static function createTable()
+    public function createTable()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "CREATE TABLE IF NOT EXISTS `cards` (
                     `user_id` int(11) NOT NULL,
                     `date` varchar(255) NOT NULL,
@@ -85,7 +83,7 @@ class Card
                     `pin` varchar(255) NOT NULL,
                     `status` varchar(255) NOT NULL
                 )";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute();
         } catch (PDOException $error) {
             echo "connection failed" . $error->getMessage();
@@ -100,13 +98,9 @@ class Card
 
     public function getStatus()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT * FROM cards WHERE user_id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->user_id]);
             $data = $stmt->fetch();
 
@@ -126,13 +120,9 @@ class Card
 
     public function setStatus($status)
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "UPDATE cards SET status = ? WHERE user_id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$status, $this->user_id]);
         } catch (PDOException $error) {
             echo "connection failed" . $error->getMessage();
@@ -149,13 +139,9 @@ class Card
 
     public function getCards()
     {
-        include 'database/config.php';
         try {
-            $connection = new PDO("mysql:host=$host;dbname=$db", $user, $password);
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $query = "SELECT * FROM cards WHERE user_id = ?";
-            $stmt = $connection->prepare($query);
+            $stmt = $this->connect()->prepare($query);
             $stmt->execute([$this->user_id]);
             $cards = array();
 
