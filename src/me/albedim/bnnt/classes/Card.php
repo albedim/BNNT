@@ -93,9 +93,9 @@ class Card
     }
 
     /**
+     * @Getter
      * 
      * Gets card's status from id
-     * 
      */
 
     public function getStatus()
@@ -117,11 +117,11 @@ class Card
     }
 
     /**
+     * @Setter
      * 
      * Sets card's status
      * 
      * @param status New status to set
-     * 
      */
 
     public function setStatus($status)
@@ -140,11 +140,11 @@ class Card
     }
 
     /**
+     * @Getter
      * 
      * Gets card's informations from id
      * 
      * @return array
-     * 
      */
 
     public function getCards()

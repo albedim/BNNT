@@ -114,11 +114,9 @@ class User
     }
 
     /**
-     *
      * Checks if given data exists in the database
      *
      * @return bool
-     *
      */
 
     public function login()
@@ -140,11 +138,11 @@ class User
     }
 
     /**
-     *
+     * @Getter
+     * 
      * Gets id from email
      * 
      * @return int
-     *
      */
 
     public function getId()
@@ -166,11 +164,11 @@ class User
     }
 
     /**
-     *
+     * @Getter
+     * 
      * Gets balance from id
      *
      * @return double
-     *
      */
 
     public function getBalance()
@@ -192,11 +190,11 @@ class User
     }
 
     /**
-     *
+     * @Getter
+     * 
      * Gets balance from iban
      *
      * @return double
-     *
      */
 
     public function getBalanceFromIban()
@@ -218,11 +216,11 @@ class User
     }
 
     /**
-     *
+     * @Getter
+     * 
      * Gets iban from id
      *
      * @return string
-     *
      */
 
     public function getIban()
@@ -244,11 +242,11 @@ class User
     }
 
     /**
-     *
+     * @Getter
+     * 
      * Gets name and surname from id
      *
      * @return string
-     *
      */
 
     public function getCompleteName()
@@ -270,11 +268,11 @@ class User
     }
 
     /**
-     *
+     * @Getter
+     * 
      * Gets month's expense from id
      *
      * @return double
-     *
      */
 
     public function getMonthExpense()
@@ -310,11 +308,11 @@ class User
     }
 
     /**
+     * @Setter
      *
      * Subtracts money to balance
      *
      * @param money Money to subtract to balance
-     *
      */
 
     public function subtractMoney($money)
@@ -333,11 +331,11 @@ class User
     }
 
     /**
-     *
+     * @Setter
+     * 
      * Adds money to balance
      *
      * @param money Money to add to balance
-     *
      */
 
     public function addMoney($money)
@@ -356,11 +354,11 @@ class User
     }
 
     /**
-     *
+     * @Setter
+     * 
      * Checks if given iban exists
      *
      * @return bool
-     *
      */
 
     public function ibanExists()
@@ -382,11 +380,11 @@ class User
     }
 
     /**
-     *
+     * @Setter
+     * 
      * Gets complete name from iban
      *
      * @return string
-     *
      */
 
     public function getCompleteNameFromIban()
@@ -408,11 +406,11 @@ class User
     }
 
     /**
+     * @Setter
      *
      * Sets name of the user
      *
      * @param newName The new name to set
-     *
      */
 
     public function setName($newName)
@@ -431,11 +429,11 @@ class User
     }
 
     /**
+     * @Setter
      *
      * Sets surname of the user
      *
      * @param newSurname The new surname to set
-     *
      */
 
     public function setSurname($newSurname)
@@ -454,11 +452,11 @@ class User
     }
 
     /**
-     *
+     * @Setter
+     * 
      * Sets e-mail of the user
      *
      * @param newEmail The new e-mail to set
-     *
      */
 
     public function setEmail($newEmail)
@@ -477,11 +475,11 @@ class User
     }
 
     /**
+     * @Setter
      *
      * Sets password of the user
      *
      * @param newPassword The new password to set
-     *
      */
 
     public function setPassword($newPassword)
@@ -500,11 +498,11 @@ class User
     }
 
     /**
+     * @Setter
      *
      * Sets month expense
      *
      * @param newMonthExpense The new month expense to set
-     *
      */
 
     public function setMonthExpense($newMonthExpense)

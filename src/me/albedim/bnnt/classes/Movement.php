@@ -105,11 +105,11 @@ class Movement
     }
 
     /**
-     * 
+     * @Getter
+
      * Gets last movements of users
      * 
      * @return array
-     * 
      */
 
     public function getLatestMovements()
@@ -148,11 +148,11 @@ class Movement
     }
 
     /**
+     * @Getter
      * 
      * Gets movements of users
      * 
      * @return array
-     * 
      */
 
     public function getMovements()
