@@ -135,11 +135,9 @@ class User
             $query = "SELECT count(*) AS total FROM users WHERE email = ? AND password = ?";
             $stmt = $connection->prepare($query);
             $stmt->execute([$this->email, $this->password]);
-
-            if ($stmt->fetch()['total'] > 0)
-                return true;
-            return false;
-
+                
+            return $stmt->fetch()['total'] > 0;
+            
         } catch (PDOException $error) {
             echo "connection failed" . $error->getMessage();
         }
@@ -388,9 +386,9 @@ class User
             $query = "SELECT count(*) AS total FROM users WHERE iban = ?";
             $stmt = $connection->prepare($query);
             $stmt->execute([$this->iban]);
-                
+
             return $stmt->fetch()['total'] > 0;
-            
+
         } catch (PDOException $error) {
             echo "connection failed" . $error->getMessage();
         }
