@@ -87,7 +87,7 @@ class User
      *
      * Creates user's table
      *
-     * @return return
+     * @return null
      * @param null
      *
      */
@@ -120,7 +120,7 @@ class User
      *
      * Checks if given data exists in the database
      *
-     * @return bool results exist ?
+     * @return bool
      * @param null
      *
      */
