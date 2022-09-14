@@ -69,9 +69,6 @@ class Card
      * 
      * Creates card's table
      * 
-     * @return null
-     * @param null
-     * 
      */
 
     public static function createTable()
@@ -99,9 +96,6 @@ class Card
      * 
      * Gets card's status from id
      * 
-     * @return bool
-     * @param null
-     * 
      */
 
     public function getStatus()
@@ -126,7 +120,6 @@ class Card
      * 
      * Sets card's status
      * 
-     * @return null
      * @param status New status to set
      * 
      */
@@ -151,7 +144,6 @@ class Card
      * Gets card's informations from id
      * 
      * @return array
-     * @param null
      * 
      */
 

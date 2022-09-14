@@ -79,9 +79,6 @@ class Movement
      * 
      * Creates movement's table
      * 
-     * @return null
-     * @param null
-     * 
      */
 
     public static function createTable()
@@ -112,7 +109,6 @@ class Movement
      * Gets last movements of users
      * 
      * @return array
-     * @param null
      * 
      */
 
@@ -156,7 +152,6 @@ class Movement
      * Gets movements of users
      * 
      * @return array
-     * @param null
      * 
      */
 
@@ -198,9 +193,6 @@ class Movement
     /**
      * 
      * Adds movement
-     * 
-     * @return null
-     * @param null
      * 
      */
 

@@ -87,9 +87,6 @@ class User
      *
      * Creates user's table
      *
-     * @return null
-     * @param null
-     *
      */
 
     public static function createTable()
@@ -121,7 +118,6 @@ class User
      * Checks if given data exists in the database
      *
      * @return bool
-     * @param null
      *
      */
 
@@ -148,7 +144,6 @@ class User
      * Gets id from email
      * 
      * @return int
-     * @param null
      *
      */
 
@@ -175,7 +170,6 @@ class User
      * Gets balance from id
      *
      * @return double
-     * @param null
      *
      */
 
@@ -202,7 +196,6 @@ class User
      * Gets balance from iban
      *
      * @return double
-     * @param null
      *
      */
 
@@ -229,7 +222,6 @@ class User
      * Gets iban from id
      *
      * @return string
-     * @param null
      *
      */
 
@@ -256,7 +248,6 @@ class User
      * Gets name and surname from id
      *
      * @return string
-     * @param null
      *
      */
 
@@ -283,7 +274,6 @@ class User
      * Gets month's expense from id
      *
      * @return double
-     * @param null
      *
      */
 
@@ -323,7 +313,6 @@ class User
      *
      * Subtracts money to balance
      *
-     * @return null
      * @param money Money to subtract to balance
      *
      */
@@ -347,7 +336,6 @@ class User
      *
      * Adds money to balance
      *
-     * @return null
      * @param money Money to add to balance
      *
      */
@@ -372,7 +360,6 @@ class User
      * Checks if given iban exists
      *
      * @return bool
-     * @param null
      *
      */
 
@@ -399,7 +386,6 @@ class User
      * Gets complete name from iban
      *
      * @return string
-     * @param null
      *
      */
 
@@ -425,7 +411,6 @@ class User
      *
      * Sets name of the user
      *
-     * @return null
      * @param newName The new name to set
      *
      */
@@ -449,7 +434,6 @@ class User
      *
      * Sets surname of the user
      *
-     * @return null
      * @param newSurname The new surname to set
      *
      */
@@ -473,7 +457,6 @@ class User
      *
      * Sets e-mail of the user
      *
-     * @return null
      * @param newEmail The new e-mail to set
      *
      */
@@ -497,7 +480,6 @@ class User
      *
      * Sets password of the user
      *
-     * @return null
      * @param newPassword The new password to set
      *
      */
@@ -521,7 +503,6 @@ class User
      *
      * Sets month expense
      *
-     * @return null
      * @param newMonthExpense The new month expense to set
      *
      */
