@@ -2,10 +2,10 @@
 
 include_once('database/Config.php');
 
-    /*
-     * Created by @albedim (Github: github.com/albedim) on 05/09/22
-     * Last Update -
-     */
+/*
+* Created by @albedim (Github: github.com/albedim) on 05/09/22
+* Last Update -
+*/
 
 class Card extends Config
 {
@@ -86,7 +86,7 @@ class Card extends Config
             $stmt = $this->connect()->prepare($query);
             $stmt->execute();
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -106,7 +106,7 @@ class Card extends Config
 
             return $data['status'];
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -125,7 +125,7 @@ class Card extends Config
             $stmt = $this->connect()->prepare($query);
             $stmt->execute([$status, $this->user_id]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -162,7 +162,7 @@ class Card extends Config
 
             return $cards;
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 }

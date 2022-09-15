@@ -2,10 +2,10 @@
 
 include_once('database/Config.php');
 
-    /*
-     * Created by @albedim (Github: github.com/albedim) on 05/09/22
-     * Last Update -
-     */
+/*
+* Created by @albedim (Github: github.com/albedim) on 05/09/22
+* Last Update -
+*/
 
 class Movement extends Config
 {
@@ -98,7 +98,7 @@ class Movement extends Config
             $stmt = $this->connect()->prepare($query);
             $stmt->execute();
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -137,7 +137,7 @@ class Movement extends Config
 
             return $movements;
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -176,7 +176,7 @@ class Movement extends Config
 
             return $movements;
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 
@@ -193,7 +193,7 @@ class Movement extends Config
             $stmt = $this->connect()->prepare($query);
             $stmt->execute([null, $this->user_iban, $this->target_iban, $this->money, $this->type, $this->description, $this->date]);
         } catch (PDOException $error) {
-            echo "connection failed" . $error->getMessage();
+            return print("connection failed" . $error->getMessage());
         }
     }
 }
