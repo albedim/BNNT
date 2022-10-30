@@ -16,7 +16,7 @@ you can see three files,
 * ```
    /* WRITE THIS COMMAND: */ create-project
   ```
-* Now, write the name of the project
+* Now, write the name of the project <br>
 It will create the project in your main directory, like this
     + ProjectDirectory
       + resources
