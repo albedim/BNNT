@@ -6,9 +6,9 @@ manually
 ### Let's start
 As you can see, you have a folder `resources`, inside of it
 you can see three files, 
-`config.py` -> it contains a json file with the database params
-`rest-service.json` -> it contains a json file with the app informations
-`config.bat` -> it's the script that will create the project for you
+ * `config.py` -> it contains a json file with the database params
+ * `rest-service.json` -> it contains a json file with the app informations
+ * `config.bat` -> it's the script that will create the project for you
 
 ### Let's create the project
 * Put the resources folder in your project directory
