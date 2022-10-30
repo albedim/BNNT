@@ -14,13 +14,14 @@ you can see three files,
 * Put the resources folder in your project directory
 * Now, go in the resources folder and open `config.bat`
 * ```
-   /* WRITE THIS COMMAND: */ create-project
+   create-project
+   insert the app name: PROJECTONE
   ```
 * Now, write the name of the project <br>
 It will create the project in your main directory, like this
     + ProjectDirectory
       + resources
-      + project-name
+      + PROJECTONE
         + configuration
           + `Config.py`
         + controller
