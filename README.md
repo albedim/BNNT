@@ -17,8 +17,7 @@ you can see three files,
    create-project
    insert the app name: PROJECTONE
   ```
-* Now, write the name of the project <br>
-It will create the project in your main directory, like this
+* It will create the project in your main directory, like this
     + ProjectDirectory
       + resources
       + PROJECTONE
